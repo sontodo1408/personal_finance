@@ -2,6 +2,8 @@
 import { reactive, ref } from 'vue';
 // import { useRouter } from 'vue-router';
 
+import logo_o from 'assets/imgs/logo_o.png';
+
 // 1) =============== INITIALIZATION   ===============
 /** Router plugin */
 // const router = useRouter();
@@ -36,8 +38,8 @@ const login = async () => {
         <div class="login-bg">
           <div class="form-box">
             <div class="tw:text-center q-pa-sm">
-              <q-img src="assets/imgs/logo_o.png" spinner-color="primary" style="height: 50px; width: 50px" />
-              <p class="tw:text-[30px] tw:text-primary-0">Quản lý thu chi</p>
+              <q-img :src="logo_o" spinner-color="lime-1" style="height: 50px; width: 50px" />
+              <p class="tw:text-[30px] tw:text-lime-1 dancing-nor">Quản lý thu chi</p>
             </div>
             <div class="tw:mt-2">
               <span class="tw:font-bold tw:text-sm tw:text-[#4B5C6B]">Mail</span>
@@ -60,11 +62,10 @@ const login = async () => {
                 </template>
               </q-input>
             </div>
-            <div class="text-center">
-              <q-btn no-caps class="!t-w-full !t-h-12 tw:mt-5" color="primary" label="Login" size="md"
+            <div class="flex justify-center tw:my-8">
+              <q-btn no-caps class="!t-w-full !t-h-12 tw:mt-5" color="lime-1" label="Login" size="md"
                 @click="login()" />
             </div>
-            <div class="row tw:mt-10"></div>
           </div>
         </div>
       </q-page>

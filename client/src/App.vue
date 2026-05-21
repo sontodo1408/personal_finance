@@ -1,9 +1,11 @@
 <script setup>
 import DialogFrame from 'components/DialogFrame.vue';
 import SystemControl from 'components/SystemControl.vue';
+import LoginPage from 'pages/LoginPage.vue';
 
 // 1) =============== INITIALIZATION   ===============
 const isAuthProcess = false;
+const isLoggedIn = true;
 
 // 2) =============== VARIABLE REF     ===============
 // 3) =============== METHOD/FUNCTION  ===============
@@ -12,7 +14,6 @@ const isAuthProcess = false;
 </script>
 
 <template>
-
   <q-layout v-if="isAuthProcess" view="hHh LpR fff">
     <q-page-container>
       <q-page class="column items-center">
@@ -23,7 +24,7 @@ const isAuthProcess = false;
     </q-page-container>
   </q-layout>
 
-  <router-view v-else v-slot="{ Component, route }">
+  <router-view v-else-if="isLoggedIn" v-slot="{ Component, route }">
     <transition :name="route.meta?.transition || 'fade'" mode="out-in">
       <component :is="Component"></component>
     </transition>
@@ -33,6 +34,8 @@ const isAuthProcess = false;
 
     <dialog-frame :key="route.fullPath" />
   </router-view>
+
+  <login-page v-else />
 
   <system-control />
 

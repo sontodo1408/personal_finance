@@ -1,6 +1,8 @@
 <script setup>
 import { reactive, computed } from 'vue';
+
 import dialog from 'utilities/dialog';
+import logo_o from 'assets/imgs/logo_o.png';
 
 // 1) =============== INITIALIZATION   ===============
 // 2) =============== VARIABLE REF     ===============
@@ -31,10 +33,10 @@ const warning = () => {
     <q-fab padding="10px" direction="down" color="lime-4" v-touch-pan.mouse="onPan" :style="draggableStyle"
       class="tw:absolute tw:left-[calc(50vw-50px)] tw:top-[calc(50vh-50px)]">
       <template #icon>
-        <q-img src="assets/imgs/logo_o.png" sizes="100" />
+        <q-img :src="logo_o" sizes="100" />
       </template>
       <template #active-icon>
-        <q-img src="assets/imgs/logo_o.png" sizes="100" />
+        <q-img :src="logo_o" sizes="100" />
       </template>
 
       <q-fab-action padding="5px" color="primary" external-label @click="warning" label-position="left">

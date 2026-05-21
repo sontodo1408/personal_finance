@@ -6,4 +6,5 @@ export const DIALOG_BTN = {
 
 export const ROUTER_NAME = {
   LOGIN: 'login',
+  HOME: 'home-page',
 };
