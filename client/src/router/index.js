@@ -16,6 +16,11 @@ const routes = [
         name: ROUTER_NAME.HOME,
         component: () => import('pages/HomePage.vue'),
       },
+      {
+        path: 'transaction-type',
+        name: ROUTER_NAME.TRANSACTION_TYPE_MANAGEMENT,
+        component: () => import('pages/transaction-type/TransactionTypePage.vue'),
+      },
     ],
   },
 ];

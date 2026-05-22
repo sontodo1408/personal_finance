@@ -39,7 +39,7 @@ const login = async () => {
           <div class="form-box">
             <div class="tw:text-center q-pa-sm">
               <q-img :src="logo_o" spinner-color="lime-1" style="height: 50px; width: 50px" />
-              <p class="tw:text-[30px] tw:text-lime-1 dancing-nor">Quản lý thu chi</p>
+              <p class="tw:text-[30px] tw:text-lime-1 font-dancing">Quản lý thu chi</p>
             </div>
             <div class="tw:mt-2">
               <span class="tw:font-bold tw:text-sm tw:text-[#4B5C6B]">Mail</span>
@@ -101,7 +101,7 @@ const login = async () => {
 
 .form-box {
   position: relative;
-  animation: shadow 0.5s ease;
+  animation: shadow 1s ease;
   animation-fill-mode: forwards;
   border-radius: 8px;
   padding: 40px 20px 0 20px;

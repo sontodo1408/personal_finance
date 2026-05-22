@@ -25,13 +25,14 @@ const onPan = (evt) => {
 const warning = () => {
   dialog.showConfirm('Title', 'Content');
 };
+
 // 4) =============== VUE JS LIFECYCLE ===============
 </script>
 
 <template>
   <q-dialog :model-value="true" seamless>
     <q-fab padding="10px" direction="down" color="lime-4" v-touch-pan.mouse="onPan" :style="draggableStyle"
-      class="tw:absolute tw:left-[calc(50vw-50px)] tw:top-[calc(50vh-50px)]">
+      class="tw:absolute tw:right-[calc(50vw-250px)] tw:bottom-[calc(50vh-25px)]">
       <template #icon>
         <q-img :src="logo_o" sizes="100" />
       </template>

@@ -5,12 +5,49 @@
   font-style: normal;
 }
 
+// FONT SIZE
 * {
   font-family: 'Be Vietnam Pro', sans-serif;
 }
 
-.dancing-nor {
+.font-dancing {
   font-family: 'Dancing Script', cursive;
+}
+
+// COMMON BOX
+.common-box {
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+  .box-title {
+    background-color: $lime-1;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .box-title-simple {
+    background-color: white;
+    color: $lime-1;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid $lime-1;
+  }
+
+  .box-content {
+    padding: 16px;
+    overflow: auto;
+  }
 }
 
 // DIALOG
@@ -50,41 +87,5 @@
     padding-bottom: 12px;
     gap: 8px;
     background-color: $lime-6;
-  }
-}
-
-// COMMON BOX
-.common-box {
-  background-color: white;
-  margin-bottom: 20px;
-  box-shadow:
-    0 1px 5px rgba(0, 0, 0, 0.2),
-    0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
-
-  .box-title {
-    background-color: $lime-1;
-    color: white;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 16px;
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .box-title-simple {
-    background-color: white;
-    color: $lime-1;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 16px;
-    font-size: 16px;
-    font-weight: 600;
-    border-bottom: 1px solid $lime-1;
-  }
-
-  .box-content {
-    padding: 16px;
-    overflow: auto;
   }
 }

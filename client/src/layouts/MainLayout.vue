@@ -1,12 +1,23 @@
 <script setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { ROUTER_NAME } from 'helpers/const';
+
+import logo_o from 'assets/imgs/logo_o.png';
 
 // 1) =============== INITIALIZATION   ===============
+const route = useRoute();
+const navItem = [
+  { label: 'Dashboard', icon: 'add', selected: ROUTER_NAME.HOME },
+  { label: 'Category', icon: 'close', selected: ROUTER_NAME.TRANSACTION_TYPE_MANAGEMENT },
+];
+
 // 2) =============== VARIABLE REF     ===============
 const leftDrawerOpen = ref(true);
 
 // 3) =============== METHOD/FUNCTION  ===============
 const toggleLeftDrawer = () => { leftDrawerOpen.value = !leftDrawerOpen.value; }
+
 // 4) =============== VUE JS LIFECYCLE ===============
 </script>
 
@@ -18,7 +29,7 @@ const toggleLeftDrawer = () => { leftDrawerOpen.value = !leftDrawerOpen.value; }
           <q-btn round flat icon="menu_open" @click="toggleLeftDrawer">
           </q-btn>
         </div>
-        <div class="tw:text-[20px] tw:ml-2 tw:font-bold tw:text-lime-1">
+        <div class="tw:text-[28px] tw:ml-1 tw:text-lime-1 font-dancing">
           Quản lý thu chi
         </div>
 
@@ -26,39 +37,48 @@ const toggleLeftDrawer = () => { leftDrawerOpen.value = !leftDrawerOpen.value; }
 
         <!-- <div class="tw:mx-3">{{ `${auth.ME.lastName} ${auth.ME.firstName}` }}</div> -->
         <q-btn round flat>
-          <q-avatar size="30px">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="">
-          </q-avatar>
-          <q-tooltip>Account</q-tooltip>
-
-          <q-menu anchor="bottom right" self="top right">
-            <q-list class="tw:w-[200px]">
-              <q-item clickable v-close-popup class="flex items-center" @click="logout">
-                <q-icon name="logout" size="20px" class="tw:mr-5" />
-                <span>Đăng xuất</span>
-              </q-item>
-            </q-list>
-          </q-menu>
+          <q-img :src="logo_o" alt="" width="25px" />
+          <q-tooltip class="tw:whitespace-nowrap">SonToDo's Application</q-tooltip>
         </q-btn>
       </q-toolbar>
     </q-header>
 
-    <!-- <q-drawer side="left" v-model="leftDrawerOpen" class="bg-lime-1 text-white">
+    <q-drawer side="left" v-model="leftDrawerOpen" class="bg-lime-4">
       <q-list class="tw:mt-3">
-        <div v-for="item in navItem" :key="item" v-show="item.accept.includes(auth.ME.role)">
-          <q-item class="nav-item" clickable :class="{ 'nav-selected': item.selected.includes(route.name) }"
-            @click="router.push(item.to)" v-if="!item.isComponent">
-            <q-icon :name="item.icon" size="24px" class="tw:mr-5" />
+        <div v-for="item in navItem" :key="item">
+          <q-item class="nav-item" clickable :class="{ 'nav-selected': item.selected?.includes(route.name) }">
+            <q-icon :name="item.icon" size="20px" class="tw:mr-5" color="lime-1" />
             <span class="nav-label">{{ item.label }}</span>
           </q-item>
-
-          <component v-else :is="item.component" :nav-item="item" />
         </div>
       </q-list>
-    </q-drawer> -->
+    </q-drawer>
 
     <q-page-container class="tw:bg-lime-6">
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
+
+<style lang="scss" scoped>
+// navigation
+.nav-item {
+  display: flex;
+  align-items: center;
+
+  .nav-label {
+    font-size: 14px;
+    color: $lime-1;
+    font-weight: 600;
+    transition: all .3s;
+  }
+
+  &:hover .nav-label {
+    transform: translateX(10px);
+  }
+}
+
+.nav-selected {
+  background-color: $lime-6;
+}
+</style>
