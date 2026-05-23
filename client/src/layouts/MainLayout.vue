@@ -1,22 +1,28 @@
 <script setup>
 import { ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { ROUTER_NAME } from 'helpers/const';
 
 import logo_o from 'assets/imgs/logo_o.png';
 
 // 1) =============== INITIALIZATION   ===============
 const route = useRoute();
+const router = useRouter();
+
 const navItem = [
-  { label: 'Dashboard', icon: 'add', selected: ROUTER_NAME.HOME },
-  { label: 'Category', icon: 'close', selected: ROUTER_NAME.TRANSACTION_TYPE_MANAGEMENT },
+  { label: 'Dashboard', icon: 'add', selected: [ROUTER_NAME.HOME], to: ROUTER_NAME.HOME },
+  { label: 'Category', icon: 'close', selected: [ROUTER_NAME.TRANSACTION_TYPE], to: ROUTER_NAME.TRANSACTION_TYPE },
 ];
 
 // 2) =============== VARIABLE REF     ===============
 const leftDrawerOpen = ref(true);
 
 // 3) =============== METHOD/FUNCTION  ===============
-const toggleLeftDrawer = () => { leftDrawerOpen.value = !leftDrawerOpen.value; }
+const toggleLeftDrawer = () => { leftDrawerOpen.value = !leftDrawerOpen.value; };
+
+const navItemOnClick = (item) => {
+  router.push({ name: item.to });
+};
 
 // 4) =============== VUE JS LIFECYCLE ===============
 </script>
@@ -46,7 +52,8 @@ const toggleLeftDrawer = () => { leftDrawerOpen.value = !leftDrawerOpen.value; }
     <q-drawer side="left" v-model="leftDrawerOpen" class="bg-lime-4">
       <q-list class="tw:mt-3">
         <div v-for="item in navItem" :key="item">
-          <q-item class="nav-item" clickable :class="{ 'nav-selected': item.selected?.includes(route.name) }">
+          <q-item class="nav-item" clickable :class="{ 'nav-selected': item.selected?.includes(route.name) }"
+            @click="navItemOnClick(item)">
             <q-icon :name="item.icon" size="20px" class="tw:mr-5" color="lime-1" />
             <span class="nav-label">{{ item.label }}</span>
           </q-item>

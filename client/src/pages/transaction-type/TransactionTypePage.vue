@@ -8,7 +8,7 @@ import TransactionTypeContent from 'pages/transaction-type/TransactionTypeConten
 </script>
 
 <template>
-  <q-page class="fit tw:p-4">
+  <q-page class="fit tw:p-5">
     <transaction-type-content />
   </q-page>
 </template>

@@ -18,7 +18,7 @@ const routes = [
       },
       {
         path: 'transaction-type',
-        name: ROUTER_NAME.TRANSACTION_TYPE_MANAGEMENT,
+        name: ROUTER_NAME.TRANSACTION_TYPE,
         component: () => import('pages/transaction-type/TransactionTypePage.vue'),
       },
     ],

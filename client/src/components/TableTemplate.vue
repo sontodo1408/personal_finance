@@ -3,6 +3,17 @@ import { ref, computed, watch } from 'vue';
 
 // 1) =============== INITIALIZATION   ===============
 const props = defineProps({
+  /**
+   * Describe columns attribute: columns template
+   * name: attribute name
+   * field: support for sort function
+   * label: label show on header of table
+   * align: 'left' | 'center' | 'right' is align for table header
+   * isHtml: using html mode of body columns (value required is html string)
+   * isIcon: using link mode of body columns (value required is binding data)
+   * isChip: using chip mode of body columns (value required is {label: chip's label; chipBind: binding data })
+   * cellBind: binding columns's attribute
+   */
   columns: {
     type: Array,
     required: true,
@@ -96,7 +107,7 @@ watch(checkSelectedModel, (v) => {
 </script>
 
 <template>
-  <div>
+  <div class="custom-table">
     <q-table hide-bottom square :columns="columns" :rows="rows" :separator="separator" :rows-per-page-options="[0]"
       class="thead-sticky" :style="{ maxHeight }">
       <template v-slot:header-cell="props">
@@ -118,16 +129,12 @@ watch(checkSelectedModel, (v) => {
             <div v-else-if="col.name === 'radio'" class="tw:text-center">
               <q-radio dense color="lime-1" v-model="radioSelectedModel" :val="props.row[radioField || '']" />
             </div>
-            <div v-else-if="col.isHtml" v-html="props.row[col.name]" v-bind="col.cellBind"></div>
-            <div v-else-if="col.isTickSummary" class="tw:text-center">
-              <q-icon name="check_circle" size="18px" color="positive" v-if="props.row[col.name] === true" />
-              <q-icon name="cancel" size="18px" color="negative" v-else />
+            <div v-else-if="col.isHtml" v-html="props.row[col.name]" v-bind="col.cellBind || {}"></div>
+            <div v-else-if="col.isIcon" v-bind="col.cellBind">
+              <q-icon v-bind="props.row[col.name]" />
             </div>
-            <div v-else-if="col.isLink" class="is-link" @click="linkClick(props.row)">{{ props.row[col.name] }}</div>
-            <div v-else-if="col.scoreEvidence" v-bind="col.cellBind || {}">
-              {{ props.row[col.name] }}
-              <q-icon v-if="(props.row[col.scoreEvidence] || []).includes(col.name)" name="error" color="warning"
-                size="21px" class="tw:cursor-pointer! tw:mb-!" @click="scoreEvidenceClick(props.row, col.name)" />
+            <div v-else-if="col.isChip" v-bind="col.cellBind">
+              <q-chip v-bind="props.row[col.name]?.chipBind">{{ props.row[col.name]?.label }}</q-chip>
             </div>
             <div v-else v-bind="col.cellBind || {}">{{ props.row[col.name] }}</div>
           </q-td>
@@ -138,43 +145,46 @@ watch(checkSelectedModel, (v) => {
 </template>
 
 <style scoped lang="scss">
-.thead-sticky {
-  thead tr th {
-    position: sticky;
-    z-index: 1;
+.custom-table {
+  .thead-sticky {
+    thead tr th {
+      position: sticky;
+      z-index: 1;
+    }
+
+    thead tr:first-child th {
+      top: 0;
+    }
   }
 
-  thead tr:first-child th {
-    top: 0;
+  :deep(.q-table thead tr) {
+    height: 40px;
   }
-}
 
-:deep(.q-table thead tr) {
-  height: 40px;
-}
+  :deep(.q-table tbody td) {
+    height: unset;
+    padding: 5px 16px;
+  }
 
-:deep(.q-table tbody td) {
-  height: unset;
-}
+  :deep(.q-table thead th) {
+    background-color: $lime-1;
+    border-color: $lime-6;
+    border-bottom-color: $lime-1;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+  }
 
-:deep(.q-table thead th) {
-  background-color: $lime-1;
-  border-color: $lime-6;
-  border-bottom-color: $lime-1;
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-}
+  :deep(.q-table thead .q-checkbox__inner) {
+    color: rgba(0, 0, 0, 0.54) !important; // show focus color
 
-:deep(.q-table thead .q-checkbox__inner) {
-  color: rgba(0, 0, 0, 0.54) !important; // show focus color
+    .q-checkbox__bg {
+      background-color: white;
+      border-color: white;
 
-  .q-checkbox__bg {
-    background-color: white;
-    border-color: white;
-
-    .q-checkbox__svg {
-      color: $lime-1;
+      .q-checkbox__svg {
+        color: $lime-1;
+      }
     }
   }
 }
