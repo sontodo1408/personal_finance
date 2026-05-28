@@ -11,7 +11,8 @@ const router = useRouter();
 
 const navItem = [
   { label: 'Dashboard', icon: 'add', selected: [ROUTER_NAME.HOME], to: ROUTER_NAME.HOME },
-  { label: 'Category', icon: 'close', selected: [ROUTER_NAME.TRANSACTION_TYPE], to: ROUTER_NAME.TRANSACTION_TYPE },
+  { label: 'Category', icon: 'close', selected: [ROUTER_NAME.CATEGORY], to: ROUTER_NAME.CATEGORY },
+  { label: 'Thêm mục chi tiêu', icon: 'close', selected: [ROUTER_NAME.TRANSACTION_ADD], to: ROUTER_NAME.TRANSACTION_ADD },
 ];
 
 // 2) =============== VARIABLE REF     ===============

@@ -7,5 +7,6 @@ export const DIALOG_BTN = {
 export const ROUTER_NAME = {
   LOGIN: 'login',
   HOME: 'home-page',
-  TRANSACTION_TYPE: 'transaction-type',
+  CATEGORY: 'category',
+  TRANSACTION_ADD: 'transaction-add',
 };

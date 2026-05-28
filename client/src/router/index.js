@@ -17,9 +17,14 @@ const routes = [
         component: () => import('pages/HomePage.vue'),
       },
       {
-        path: 'transaction-type',
-        name: ROUTER_NAME.TRANSACTION_TYPE,
-        component: () => import('pages/transaction-type/TransactionTypePage.vue'),
+        path: 'category',
+        name: ROUTER_NAME.CATEGORY,
+        component: () => import('pages/category/CategoryPage.vue'),
+      },
+      {
+        path: 'transaction/add',
+        name: ROUTER_NAME.TRANSACTION_ADD,
+        component: () => import('pages/transaction/TransactionPage.vue'),
       },
     ],
   },

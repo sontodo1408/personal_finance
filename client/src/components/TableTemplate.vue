@@ -94,7 +94,6 @@ const selectAllClick = () => {
 };
 
 const rowClick = (row) => {
-  console.log(row);
   if (props.rowClick) { props.rowClick(row); }
 };
 

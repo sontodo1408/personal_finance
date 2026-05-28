@@ -1,5 +1,5 @@
 <script setup>
-import TransactionTypeContent from 'pages/transaction-type/TransactionTypeContent.vue';
+import TransactionContent from 'pages/transaction/TransactionContent.vue';
 
 // 1) =============== INITIALIZATION   ===============
 // 2) =============== VARIABLE REF     ===============
@@ -9,6 +9,6 @@ import TransactionTypeContent from 'pages/transaction-type/TransactionTypeConten
 
 <template>
   <q-page class="fit tw:p-5">
-    <transaction-type-content />
+    <transaction-content />
   </q-page>
 </template>

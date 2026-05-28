@@ -25,7 +25,10 @@ const layout = reactive([
       <GridLayout :vertical-compact="false" :margin="[0, 0]" v-model:layout="layout" :col-num="12"
         :row-height="rowHeight" :max-rows="8" :is-draggable="true" :is-resizable="true" class="tw:h-full">
         <GridItem v-for="item in layout" :key="item.i" v-bind="item" class="tw:p-1">
-          <div class="tw:bg-white tw:h-full! tw:rounded-md"></div>
+          <div class="common-box tw:h-full radius">
+            <div class="box-title"></div>
+            <div class="box-content"></div>
+          </div>
         </GridItem>
       </GridLayout>
     </div>
