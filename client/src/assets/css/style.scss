@@ -16,6 +16,8 @@
 
 // COMMON BOX
 .common-box {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   margin-bottom: 20px;
   box-shadow:
@@ -50,8 +52,8 @@
   }
 
   .box-content {
-    padding: 16px;
     overflow: auto;
+    flex: 1;
   }
 }
 

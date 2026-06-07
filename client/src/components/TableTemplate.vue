@@ -107,8 +107,8 @@ watch(checkSelectedModel, (v) => {
 
 <template>
   <div class="custom-table">
-    <q-table hide-bottom square :columns="columns" :rows="rows" :separator="separator" :rows-per-page-options="[0]"
-      class="thead-sticky" :style="{ maxHeight }">
+    <q-table hide-bottom square bordered :columns="columns" :rows="rows" :separator="separator"
+      :rows-per-page-options="[0]" class="thead-sticky" :style="{ maxHeight }">
       <template v-slot:header-cell="props">
         <q-th :props="props" class="tw:cursor-pointer">
           <span v-if="props.col.field === 'select' && checkField">

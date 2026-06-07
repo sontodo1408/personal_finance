@@ -12,7 +12,7 @@ const router = useRouter();
 const navItem = [
   { label: 'Dashboard', icon: 'add', selected: [ROUTER_NAME.HOME], to: ROUTER_NAME.HOME },
   { label: 'Category', icon: 'close', selected: [ROUTER_NAME.CATEGORY], to: ROUTER_NAME.CATEGORY },
-  { label: 'Thêm mục chi tiêu', icon: 'close', selected: [ROUTER_NAME.TRANSACTION_ADD], to: ROUTER_NAME.TRANSACTION_ADD },
+  { label: 'Các mục chi tiêu', icon: 'close', selected: [ROUTER_NAME.TRANSACTION_ADD], to: ROUTER_NAME.TRANSACTION_ADD },
 ];
 
 // 2) =============== VARIABLE REF     ===============
@@ -33,8 +33,7 @@ const navItemOnClick = (item) => {
     <q-header elevated class="bg-white text-grey-8">
       <q-toolbar>
         <div class="tw:transition-all tw:duration-400" :class="leftDrawerOpen ? 'tw:rotate-180' : ''">
-          <q-btn round flat icon="menu_open" @click="toggleLeftDrawer">
-          </q-btn>
+          <q-btn round flat icon="menu_open" @click="toggleLeftDrawer" />
         </div>
         <div class="tw:text-[28px] tw:ml-1 tw:text-lime-1 font-dancing">
           Quản lý thu chi

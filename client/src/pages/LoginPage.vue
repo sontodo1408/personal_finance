@@ -63,8 +63,7 @@ const login = async () => {
               </q-input>
             </div>
             <div class="flex justify-center tw:my-8">
-              <q-btn no-caps class="!t-w-full !t-h-12 tw:mt-5" color="lime-1" label="Login" size="md"
-                @click="login()" />
+              <c-btn class="!t-w-full !t-h-12 tw:mt-5" color="lime-1" label="Login" size="md" @click="login()" />
             </div>
           </div>
         </div>

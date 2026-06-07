@@ -35,8 +35,7 @@ const btnClick = (id, btn) => {
       </q-card-section>
       <q-card-section v-if="!item.config.isComponent" class="dialog-btn-container">
         <div v-for="(btn, index) in item.config.buttons" :key="btn">
-          <q-btn no-caps :outline="index === 0" color="lime-1" :label="btn" @click="btnClick(item.id, btn)"
-            class="tw:min-w-27!" />
+          <c-btn :outline="index === 0" :label="btn" @click="btnClick(item.id, btn)" class="tw:min-w-27!" />
         </div>
       </q-card-section>
     </q-card>

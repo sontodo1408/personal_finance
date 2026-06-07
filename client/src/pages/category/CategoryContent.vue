@@ -45,9 +45,9 @@ onMounted(() => {
   <div class="tw:max-w-250">
     <div class="flex tw:space-x-5">
       <q-space />
-      <div><q-btn no-caps color="lime-1" label="Thêm mới" icon="add" @click="updateCategory" /></div>
-      <div><q-btn no-caps color="lime-1" label="Sử dụng mẫu đã có" icon="add" disable /></div>
-      <div><q-btn no-caps color="negative" label="Xóa" icon="delete" :disable="tableRowSelected.length === 0" /></div>
+      <div><c-btn label="Thêm mới" icon="add" @click="updateCategory" /></div>
+      <div><c-btn label="Sử dụng mẫu đã có" icon="add" disable /></div>
+      <div><c-btn color="negative" label="Xóa" icon="delete" :disable="tableRowSelected.length === 0" /></div>
     </div>
 
     <table-template :columns="COLUMNS" :rows="categoryData" class="tw:mt-5" check-field="id"

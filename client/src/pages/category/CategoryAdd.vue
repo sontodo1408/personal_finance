@@ -52,7 +52,7 @@ onMounted(() => {
     </div>
   </div>
   <q-card-section class="dialog-btn-container">
-    <q-btn no-caps outline label="Đóng" color="lime-1" v-close-popup />
-    <q-btn no-caps label="Lưu" color="lime-1" @click="submit" />
+    <c-btn outline label="Đóng" v-close-popup />
+    <c-btn label="Lưu" @click="submit" />
   </q-card-section>
 </template>
